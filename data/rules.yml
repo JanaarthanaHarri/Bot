@@ -12,17 +12,92 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
   
-- rule: check order status
+# order status
+
+- rule: Activate email form for order status
   steps:
   - intent: order_status
-  - action: utter_order_status
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: order_status_form
+  - active_loop: order_status_form
 
-- rule: check order return
+- rule: Submit order status form, survey complete
+  condition:
+  - active_loop: order_status_form
+  - slot_was_set:
+    - survey_complete: True
   steps:
-  - intent: return
-  - action: utter_order_returned
+  - action: order_status_form
+  - active_loop: null
+  - action: action_order_status
 
-- rule: cancel order
+- rule: Submit order status form, needs survey
+  condition:
+  - active_loop: order_status_form
+  steps:
+  - action: order_status_form
+  - active_loop: null
+  - action: action_order_status
+  - action: survey_form
+  - active_loop: survey_form
+
+# cancel order
+
+- rule: Activate email form for cancelling order
   steps:
   - intent: order_cancel
-  - action: utter_order_cancelled
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: cancel_form
+  - active_loop: cancel_form
+
+- rule: Submit cancel form, survey complete
+  condition:
+  - active_loop: cancel_form
+  - slot_was_set:
+    - survey_complete: True
+  steps:
+  - action: cancel_form
+  - active_loop: null
+  - action: action_cancel_order
+
+- rule: Submit cancel form, needs survey
+  condition:
+  - active_loop: cancel_form
+  steps:
+  - action: cancel_form
+  - active_loop: null
+  - action: action_cancel_order
+  - action: survey_form
+  - active_loop: survey_form
+
+# return
+
+- rule: Activate email form for returning item
+  steps:
+  - intent: return
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: return_form
+  - active_loop: return_form
+
+- rule: Submit return form, survey complete
+  condition:
+  - active_loop: return_form
+  - slot_was_set:
+    - survey_complete: True
+  steps:
+  - action: return_form
+  - active_loop: null
+  - action: action_return
+
+- rule: Submit return form, needs survey
+  condition:
+  - active_loop: return_form
+  steps:
+  - action: return_form
+  - active_loop: null
+  - action: action_return
+  - action: survey_form
+  - active_loop: survey_form

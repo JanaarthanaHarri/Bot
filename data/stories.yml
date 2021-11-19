@@ -28,3 +28,37 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+  # cancel stories
+
+- story: User stops order_status
+  steps:
+  - active_loop: order_status_form
+  - intent: deny
+  - action: utter_start_over
+  - action: utter_greet
+  - action: action_deactivate_loop
+  - active_loop: null
+
+- story: User stops cancel_form
+  steps:
+  - active_loop: cancel_form
+  - intent: deny
+  - action: utter_start_over
+  - action: utter_greet
+  - action: action_deactivate_loop
+  - active_loop: null
+
+- story: User stops return_form
+  steps:
+  - active_loop: return_form
+  - intent: deny
+  - action: utter_start_over
+  - action: utter_greet
+  - action: action_deactivate_loop
+  - active_loop: null
+
+- story: order food
+  steps:
+  - intent: order_food
+  - action: utter_order_food

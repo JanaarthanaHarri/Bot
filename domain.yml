@@ -12,10 +12,13 @@ intents:
 - order_cancel
 - return
 - inform
+- order_food
 
 entities:
 - email
 - food
+- number
+- negation
 
 slots:
   food:
@@ -27,7 +30,22 @@ slots:
   qty:
     type: text
     influence_conversation: false
-  
+  rating:
+    type: text
+    influence_conversation: false
+    auto_fill: false
+  open_feedback:
+    type: text
+    influence_conversation: false
+  requested_slot:
+    type: any
+    influence_conversation: false
+  verified_email:
+    type: bool
+    influence_conversation: true
+  survey_complete:
+    type: bool
+    influence_conversation: true
 
 responses:
   utter_greet:
@@ -49,6 +67,11 @@ responses:
   utter_iamabot:
   - text: "I am a bot."
 
+  utter_default:
+  - text: I don't think I understand. Can you try providing more detail?
+  - text: um, what did you just say to me?
+  - text: beep, boop, don't understand
+
   utter_ask_order_status_form_email:
   - text: I can help you find the status of your order. What's your email address
       so I can find the order?
@@ -59,15 +82,62 @@ responses:
   utter_no_order:
   - text: Hmm, seems like we don't have an order associated with that email
 
+  utter_ask_cancel_form_email:
+  - text: Sorry to hear you want to cancel! To help find your order, can you please
+      provide your email address?
+
   utter_order_cancelled:
   - text: Your order has been cancelled. 
 
+  utter_ask_return_form_email:
+  - text: Sorry to hear you are not satisfied with our food. To help find your order, can you please provide
+      your email address?
+
   utter_order_returned:
-  - text: Your order in available for return.
+  - text: Ok, I've kicked off your return. Our staff will be there to collect your food.
 
+  utter_ask_survey_form_rating:
+  - buttons:
+    - payload: '1'
+      title: '1'
+    - payload: '2'
+      title: '2'
+    - payload: '3'
+      title: '3'
+    - payload: '4'
+      title: '4'
+    - payload: '5'
+      title: '5'
+    text: On a scale of 1-5, how would you rate your conversation today?
 
+  utter_ask_survey_form_open_feedback:
+  - text: Is there any other feedback you can provide?
 
+  utter_survey_end:
+  - text: Thank you for the feedback!
   
+  utter_start_over:
+  - text: Ok, let's start over.
+  
+  utter_open_feedback: #this is to test the response was collected
+  - text: Here's your lovely feedback - {open_feedback}
+  
+  utter_in_stock:
+  - text: You're in luck! We have those for delivery.
+  
+  utter_no_stock:
+  - text: Sorry, seems like we are out of those.
+  
+  utter_order_food:
+  - text: Sorry, I can't actually help you order food. Please visit our 
+      site to order foood! I can help you check the menu, see the 
+      status of an order or even make a change to that order.
+
+actions:
+- action_survey_submit
+- action_order_status
+- action_cancel_order
+- action_return
 
 forms:
   order_status_form:
@@ -78,9 +148,25 @@ forms:
       - intent:
         - inform
         type: from_text
+  cancel_form:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+  return_form:
+    required_slots:
+      email:
+      - entity: email
+        not_intent: product_updates
+        type: from_entity
+  survey_form:
+    required_slots:
+      rating:
+      - entity: number
+        type: from_entity
+      open_feedback:
+      - type: from_text
 
-action:
-- action_order_status
 
 session_config:
   session_expiration_time: 60

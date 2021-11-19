@@ -4,16 +4,16 @@ connection = sqlite3.connect('data.db')
 cursor = connection.cursor()
 
 cursor.execute('''CREATE TABLE orders
-             (order_date, order_number, order_email, brand, model, status)''')
+             (order_date, order_number, order_email, food, qty, status)''')
 
-orders = [('2021-11-18', 123,'tony@gmail.com','iphone',12,'shipped')]
+orders = [('2021-11-18', 123,'tony@gmail.com','pizza','large','cooking')]
 
 cursor.executemany('INSERT INTO orders VALUES (?,?,?,?,?,?)', orders)
 
 cursor.execute('''CREATE TABLE inventory
-                    (brand, model)''')
+                    (size, food)''')
 
-inventory = [(6, 'iphone'),(7, 'iphone'),(8, 'iphone'),(9, 'iphone')]
+inventory = [('large', 'pizza'),('regular', 'boba'),('small', 'burger')]
 
 cursor.executemany('INSERT INTO inventory VALUES (?,?)', inventory)
 

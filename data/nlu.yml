@@ -96,18 +96,49 @@ nlu:
     - check my status
     - check status
     - can i check my order status
+    - order status for tony@gmail.com
+    - where is my order?
+    - I'd like an update on my order
+    - I haven't received my order yet, can we check that?
 
 - intent: order_cancel
   examples: |
     - cancel my order
     - can you cancel my order
     - i'd like to cancel my order
+    - I changed my mind on my order
 
 - intent: return
   examples: |
-    - want to return my phone
-    - how do I return my phone?
-    - Have a problem with my phone.
-    - How do i return my phone
+    - want to return my food, it's too cold
+    - something wrong with food.
+    - Have a problem with my order.
+    - How do i return my order
+
+- intent: inform
+  examples: |
+    - tony@gmail.com
+    - my email is tony@yahoo.com
+    - it's tony@gmail.com
+    - [pizza](food) shoes
+    - [pizza](food) ones
+    - I'm looking for [boba](food) 
+    - [burger](food)
+    - [ramen](food)
+    - it's 123
+    - it's a@b.com
+    - xyz@hulaloo.ai
+    - gray
+    - [biriyani](food) and [ramen](food)
+    - wait actually that email is wrong. it should be asdf1@asdf.com
+    - asdf@asdf.com
+    - [pizza](food)
+    - test@test.com
+
+- intent: order_food
+  examples: |
+    - i want to order food
+    - no, don't want to do a return, want to order food
+    - how about I place an order
 
   
