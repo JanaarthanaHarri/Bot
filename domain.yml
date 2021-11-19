@@ -11,22 +11,23 @@ intents:
 - order_status
 - order_cancel
 - return
+- inform
 
 entities:
 - email
-- brand
+- food
 
 slots:
-  brand:
+  food:
     type: text
     influence_conversation: false
   email: 
     type: text
     influence_conversation: false
-  model:
+  qty:
     type: text
     influence_conversation: false
-
+  
 
 responses:
   utter_greet:
@@ -48,14 +49,38 @@ responses:
   utter_iamabot:
   - text: "I am a bot."
 
+  utter_ask_order_status_form_email:
+  - text: I can help you find the status of your order. What's your email address
+      so I can find the order?
+
   utter_order_status:
-  - text: Looks like the order from is currently in process
+  - text: Looks like the order from {email} is currently in {status}
+
+  utter_no_order:
+  - text: Hmm, seems like we don't have an order associated with that email
 
   utter_order_cancelled:
   - text: Your order has been cancelled. 
 
   utter_order_returned:
   - text: Your order in available for return.
+
+
+
+  
+
+forms:
+  order_status_form:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+      - intent:
+        - inform
+        type: from_text
+
+action:
+- action_order_status
 
 session_config:
   session_expiration_time: 60
