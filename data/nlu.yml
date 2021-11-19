@@ -105,9 +105,32 @@ nlu:
 
 - intent: return
   examples: |
-    - want to return my phone
-    - how do I return my phone?
-    - Have a problem with my phone.
-    - How do i return my phone
+    - want to return my food
+    - food is too cold?
+    - Have a problem with my food.
+    - Not what i ordered.
+
+- intent: inform
+  examples: |
+    - tony@gmail.com
+    - my email is tony@gmail.com
+    - it's tony@gmail.com
+    - [pizza](food) large
+    - [pizza](food) small
+    - [boba](food) ones
+    - Do you serve [biyani](food) 
+    - [ramen](food)
+    - [boba](food)
+    - it's 123
+    - it's a@b.com
+    - xyz@hulaloo.ai
+    - gray
+    - [fires](food) and [boba](food)
+    - wait actually that email is wrong. it should be asdf1@asdf.com
+    - asdf@asdf.com
+    - [biriyani](food)
+    - test@test.com
+
+
 
   
