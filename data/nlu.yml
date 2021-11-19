@@ -93,8 +93,21 @@ nlu:
 
 - intent: order_status
   examples: |
-   - check my status
-   - check status
-   - can i check my order status
+    - check my status
+    - check status
+    - can i check my order status
 
-- 
+- intent: order_cancel
+  examples: |
+    - cancel my order
+    - can you cancel my order
+    - i'd like to cancel my order
+
+- intent: return
+  examples: |
+    - want to return my phone
+    - how do I return my phone?
+    - Have a problem with my phone.
+    - How do i return my phone
+
+  

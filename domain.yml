@@ -1,13 +1,32 @@
 version: "2.0"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- order_status
+- order_cancel
+- return
+
+entities:
+- email
+- brand
+
+slots:
+  brand:
+    type: text
+    influence_conversation: false
+  email: 
+    type: text
+    influence_conversation: false
+  model:
+    type: text
+    influence_conversation: false
+
 
 responses:
   utter_greet:
@@ -27,7 +46,16 @@ responses:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot."
+
+  utter_order_status:
+  - text: Looks like the order from is currently in process
+
+  utter_order_cancelled:
+  - text: Your order has been cancelled. 
+
+  utter_order_returned:
+  - text: Your order in available for return.
 
 session_config:
   session_expiration_time: 60

@@ -11,3 +11,18 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+  
+- rule: check order status
+  steps:
+  - intent: order_status
+  - action: utter_order_status
+
+- rule: check order return
+  steps:
+  - intent: return
+  - action: utter_order_returned
+
+- rule: cancel order
+  steps:
+  - intent: order_cancel
+  - action: utter_order_cancelled
