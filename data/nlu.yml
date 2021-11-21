@@ -141,4 +141,15 @@ nlu:
     - no, don't want to do a return, want to order food
     - how about I place an order
 
+- intent: food_menu
+  examples: |
+    - is [burger](food) available for delivery?
+    - what about [biriyani](food)
+    - what's you menu
+    - check menu
+    - do you have any chef's special today
+    - i'm looking for [ramen](food)
+
+
+ 
   
