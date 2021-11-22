@@ -135,3 +135,42 @@ class SurveySubmit(Action):
         dispatcher.utter_message(template="utter_open_feedback")
         dispatcher.utter_message(template="utter_survey_end")
         return [SlotSet("survey_complete", True)]
+
+
+class ActionMenuSearch(Action):
+    def name(self) -> Text:
+        return "action_menu_search"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        # connect to DB
+        connection = sqlite3.connect(path_to_db)
+        cursor = connection.cursor()
+
+        # get slots 
+        food = [(tracker.get_slot("food"))]
+
+        # place cursor on correct row based on search criteria
+        cursor.execute("SELECT * FROM inventory WHERE food=?",food)
+        
+        # retrieve sqlite row
+        data_row = cursor.fetchone()
+
+        if data_row:
+            # provide in stock message
+            dispatcher.utter_message(template="utter_in_menu")
+            connection.close()
+            slots_to_reset = ["food"]
+            return [SlotSet(slot, None) for slot in slots_to_reset]
+        else:
+            # provide out of stock
+            dispatcher.utter_message(template="utter_no_menu")
+            connection.close()
+            slots_to_reset = ["food"]
+            return [SlotSet(slot, None) for slot in slots_to_reset]
+

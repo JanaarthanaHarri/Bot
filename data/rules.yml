@@ -101,3 +101,44 @@ rules:
   - action: action_return
   - action: survey_form
   - active_loop: survey_form
+
+  # food search
+
+- rule: Activate form for food menu 
+  steps:
+  - intent: food_menu
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_food_menu_start
+  - action: food_menu_form
+  - active_loop: food_menu_form
+
+- rule: Submit food menu form, survey complete
+  condition:
+  - active_loop: food_menu_form
+  - slot_was_set:
+    - survey_complete: True
+  steps:
+  - action: food_menu_form
+  - active_loop: null
+  - action: action_menu_search
+
+- rule: Submit food menu form, needs survey
+  condition:
+  - active_loop: food_menu_form
+  steps:
+  - action: food_menu_form
+  - active_loop: null
+  - action: action_menu_search
+  - action: survey_form
+  - active_loop: survey_form
+
+# submit survey (activation is appended to each form)
+
+- rule: Submit survey
+  condition:
+  - active_loop: survey_form
+  steps:
+  - action: survey_form
+  - active_loop: null
+  - action: action_survey_submit

@@ -163,7 +163,7 @@ stories:
   steps:
   - intent: return
     user: |-
-      return my shoes
+      return my food
   - action: action_deactivate_loop
   - action: return_form
   - active_loop: return_form
@@ -177,4 +177,41 @@ stories:
   - action: action_return
   - action: survey_form
   - active_loop: survey_form
+
+  - story: menu search happy path
+  steps:
+  - intent: food_menu
+    user: |-
+      can you check mneu
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_food_menu_start
+  - action: food_menu_form
+  - active_loop: food_menu_form
+  - intent: inform
+    user: |-
+      [pizza](food)
+  - slot_was_set:
+    - food: pizza
+  - action: food_menu_form
+  - active_loop: null
+  - action: action_menu_search
+  - action: survey_form
+  - active_loop: survey_form
+
+- story: cancel out of order status
+  steps:
+  - intent: order_status
+    user: |-
+      get order status pls
+  - action: action_deactivate_loop
+  - action: order_status_form
+  - active_loop: order_status_form
+  - intent: deny
+    user: |-
+      nevermind
+  - action: utter_start_over
+  - action: utter_greet
+  - action: action_deactivate_loop
+  - active_loop: null
 

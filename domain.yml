@@ -183,8 +183,8 @@ forms:
       - type: from_text
   food_menu_form:
     required_slots:
-      color:
-      - entity: color
+      food:
+      - entity: food
         type: from_entity
 
 
