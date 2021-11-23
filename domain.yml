@@ -2,11 +2,8 @@ version: "2.0"
 
 intents:
 - greet
-- goodbye
 - affirm
 - deny
-- mood_great
-- mood_unhappy
 - bot_challenge
 - order_status
 - order_cancel
@@ -14,6 +11,18 @@ intents:
 - inform
 - order_food
 - food_menu
+- goodbye
+- mood_unhappy
+- mood_great
+- capabilities
+- confirm_presence
+- thanks
+- cuisine_clarification
+- payment_method
+- alternate_info
+- out_of_scope
+- nlu_fallback
+- whats_your_name
 
 entities:
 - email
@@ -52,21 +61,45 @@ responses:
   utter_greet:
   - text: "Hey! How are you?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_alternate_info:
+  - text: Currenty we can only provide order information based on email.
+  
+  utter_cuisine_clarification:
+  - text: Right now we only serve American, Italian and Indian cusines. We'll try to add more cuisines in the
+      future!
 
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+  utter_payment_methods:
+  - text: We accept all major credit cards, Apple Pay, Google Pay, and PayPal.
+  
+  utter_thanks:
+  - text: No problem!
+  - text: I have no choice but to help you.
+  - text: I try my best
+  
+  utter_confirm_presence:
+  - text: yep I'm here.
+  - text: unfortunately, I'm still listening.
+  
+  utter_capabilities:
+  - text: I can help you start a check status, return order, cancel order and check menu.
+  
+  utter_mood_great:
+  - text: Superb!
+  - text: right on
+  
+  utter_mood_unhappy:
+  - text: sorry to hear that :(
+  - text: ok can you be nice to me
+  
+  utter_bot_challenge:
+  - text: I'm a bot, built using Rasa! Beep boop
+  
   utter_goodbye:
-  - text: "Bye"
+  - text: bye bye
+  - text: c u later
 
   utter_iamabot:
-  - text: "I am a bot."
+  - text: "I am a bot to help you with food delivery status. How can i help you?"
 
   utter_default:
   - text: I don't think I understand. Can you try providing more detail?
@@ -133,7 +166,7 @@ responses:
   utter_start_over:
   - text: Ok, let's start over.
   
-  utter_open_feedback: #this is to test the response was collected
+  utter_open_feedback: 
   - text: Here's your lovely feedback - {open_feedback}
   
   utter_in_menu:
@@ -153,6 +186,7 @@ actions:
 - action_order_status
 - action_cancel_order
 - action_return
+- action_give_name
 
 forms:
   order_status_form:

@@ -7,33 +7,6 @@ stories:
   - intent: greet
   - action: utter_greet
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-
   # cancel stories
 
 - story: User stops food_menu
@@ -76,3 +49,9 @@ stories:
   steps:
   - intent: order_food
   - action: utter_order_food
+
+# this is to demonstrate adding metadata to a response
+- story: user asks for name
+  steps:
+  - intent: whats_your_name
+  - action: action_give_name

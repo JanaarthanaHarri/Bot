@@ -2,6 +2,8 @@ version: "2.0"
 
 rules:
 
+# chitchat
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -11,6 +13,55 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: happy mood
+  steps:
+  - intent: mood_great
+  - action: utter_mood_great
+
+- rule: sad mood
+  steps:
+  - intent: mood_unhappy
+  - action: utter_mood_unhappy
+
+- rule: say confirm_presence
+  steps:
+  - intent: confirm_presence
+  - action: utter_confirm_presence
+
+- rule: say thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- rule: ask capabilities
+  steps:
+  - intent: capabilities
+  - action: utter_capabilities
+
+- rule: out of scope
+  steps:
+  - or:
+    - intent: nlu_fallback
+    - intent: out_of_scope
+  - action: utter_default
+
+# FAQs
+
+- rule: ask payment method
+  steps:
+  - intent: payment_method
+  - action: utter_payment_method
+
+- rule: ask cuisine clarification
+  steps:
+  - intent: cuisine_clarification
+  - action: utter_cuisine_clarification
+
+- rule: ask alternate_info
+  steps:
+  - intent: alternate_info
+  - action: utter_alternate_info
   
 # order status
 

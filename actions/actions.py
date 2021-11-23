@@ -174,3 +174,23 @@ class ActionMenuSearch(Action):
             slots_to_reset = ["food"]
             return [SlotSet(slot, None) for slot in slots_to_reset]
 
+class GiveName(Action):
+    def name(self) -> Text:
+        return "action_give_name"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        evt = BotUttered(
+            text = "my name is bot? idk", 
+            metadata = {
+                "nameGiven": "bot"
+            }
+        )
+
+        return [evt]
+
