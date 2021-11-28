@@ -68,7 +68,7 @@ responses:
   - text: Right now we only serve American, Italian and Indian cusines. We'll try to add more cuisines in the
       future!
 
-  utter_payment_methods:
+  utter_payment_method:
   - text: We accept all major credit cards, Apple Pay, Google Pay, and PayPal.
   
   utter_thanks:
@@ -81,7 +81,7 @@ responses:
   - text: unfortunately, I'm still listening.
   
   utter_capabilities:
-  - text: I can help you start a check status, return order, cancel order and check menu.
+  - text: I can help you check you order status, return order, cancel order and check menu.
   
   utter_mood_great:
   - text: Superb!
@@ -111,7 +111,7 @@ responses:
       so I can find the order?
 
   utter_order_status:
-  - text: Looks like the order from {email} is currently in {status}
+  - text: Looks like the order from {email} is {status}
 
   utter_no_order:
   - text: Hmm, seems like we don't have an order associated with that email

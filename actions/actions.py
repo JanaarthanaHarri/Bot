@@ -162,13 +162,13 @@ class ActionMenuSearch(Action):
         data_row = cursor.fetchone()
 
         if data_row:
-            # provide in stock message
+            # provide in menu
             dispatcher.utter_message(template="utter_in_menu")
             connection.close()
             slots_to_reset = ["food"]
             return [SlotSet(slot, None) for slot in slots_to_reset]
         else:
-            # provide out of stock
+            # provide not in menu
             dispatcher.utter_message(template="utter_no_menu")
             connection.close()
             slots_to_reset = ["food"]
