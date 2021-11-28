@@ -6,8 +6,8 @@ cursor = connection.cursor()
 cursor.execute('''CREATE TABLE orders
              (order_date, order_number, order_email, food, qty, status)''')
 
-orders = [('2021-11-18', 456,'tony@gmail.com','pizza','large','cooking'),
-          ('2021-11-18',457,'bob@gmail.com','burger', 'small', 'in queue'),
+orders = [('2021-11-18', 456,'tony@gmail.com','pizza','large','in kitchen now'),
+          ('2021-11-18',457,'bob@gmail.com','burger', 'small', 'in queue still'),
           ('2021-11-18',458,'me@gmail.com','boba', 'regular', 'out for pick up'),
           ]
 

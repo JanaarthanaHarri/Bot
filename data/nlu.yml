@@ -172,7 +172,7 @@ nlu:
 
 - intent: food_menu
   examples: |
-    - is [burger](food) available for delivery?
+    - is [burger](food) available?
     - what about [biriyani](food)
     - what's in your menu
     - check menu
