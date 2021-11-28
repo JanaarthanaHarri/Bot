@@ -182,20 +182,18 @@ nlu:
 - intent: out_of_scope
   examples: |
     - mmm I can't see what you're saying
-    - I am looking forward to my best friend's wedding. Do you have any tuxedo's?
+    - Do you have any tuxedo's?
     - hmmmm
     - Can I?
-    - Well, okay then
     - what is the square root of 5
     - I want to know the weather
     - what is the meaning of life.
     - Fridge Isn't Running
     - my tv isn't working
-    - I want a pizza
     - my washing machine isn't working
     - what year is it
-    - order a pizza
-    - I want to order a pizza
+    - order a phone
+    - I want to order shoes
     - what is the weather today
     - what is the weather
     - why is the sky blue
