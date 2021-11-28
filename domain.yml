@@ -65,7 +65,7 @@ responses:
   - text: Currenty we can only provide order information based on email.
   
   utter_cuisine_clarification:
-  - text: Right now we only serve American, Italian and Indian cusines. We'll try to add more cuisines in the
+  - text: Right now we only serve American, Italian and Indian cuisines. We'll try to add more cuisines in the
       future!
 
   utter_payment_method:
@@ -81,7 +81,7 @@ responses:
   - text: unfortunately, I'm still listening.
   
   utter_capabilities:
-  - text: I can help you check you order status, return order, cancel order and check menu.
+  - text: I can help you check your order status, return order, cancel order and browse menu.
   
   utter_mood_great:
   - text: Superb!
@@ -104,7 +104,6 @@ responses:
   utter_default:
   - text: I don't think I understand. Can you try providing more detail?
   - text: um, what did you just say to me?
-  - text: beep, boop, don't understand
 
   utter_ask_order_status_form_email:
   - text: I can help you find the status of your order. What's your email address
@@ -128,7 +127,7 @@ responses:
       your email address?
 
   utter_order_returned:
-  - text: Ok, I've kicked off your return. Our staff will be there to collect your food.
+  - text: Ok, I've kicked off your return.
 
   utter_food_menu_start:
   - text: I can help you find food you are looking for.

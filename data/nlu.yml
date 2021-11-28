@@ -122,8 +122,8 @@ nlu:
 
 - intent: order_status
   examples: |
-    - check my status
-    - check status
+    - check my order status
+    - check order
     - can i check my order status
     - order status for tony@gmail.com
     - where is my order?
@@ -174,9 +174,10 @@ nlu:
   examples: |
     - is [burger](food) available for delivery?
     - what about [biriyani](food)
-    - what's you menu
+    - what's in your menu
     - check menu
-    - do you have any chef's special today
+    - browse mwnu
+    - do you have any specials today
     - i'm looking for [ramen](food)
 
 - intent: out_of_scope

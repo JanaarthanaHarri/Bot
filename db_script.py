@@ -8,7 +8,7 @@ cursor.execute('''CREATE TABLE orders
 
 orders = [('2021-11-18', 456,'tony@gmail.com','pizza','large','cooking'),
           ('2021-11-18',457,'bob@gmail.com','burger', 'small', 'queue still'),
-          ('2021-11-18',458,'me@gmail.com','boba', 'regular', 'nearby (5mins)'),
+          ('2021-11-18',458,'me@gmail.com','boba', 'regular', 'out for delivery'),
           ]
 
 cursor.executemany('INSERT INTO orders VALUES (?,?,?,?,?,?)', orders)
