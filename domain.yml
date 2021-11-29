@@ -169,7 +169,7 @@ responses:
   - text: Here's your lovely feedback - {open_feedback}
   
   utter_in_menu:
-  - text: You're in luck! We have those for delivery.
+  - text: You're in luck! We have {food} in today's menu.
   
   utter_no_menu:
   - text: Sorry, seems like we are out of those.
