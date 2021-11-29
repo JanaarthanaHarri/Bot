@@ -123,11 +123,11 @@ responses:
   - text: Your order has been cancelled. 
 
   utter_ask_return_form_email:
-  - text: Sorry to hear you are not satisfied with our food. To help find your order, can you please provide
+  - text: Sorry to hear that. To help find your order, can you please provide
       your email address?
 
   utter_order_returned:
-  - text: Ok, I've kicked off your return.
+  - text: Ok, you can return your food in 2 hrs. For further queries please contact our customer support - 408-111-2222
 
   utter_food_menu_start:
   - text: I can help you find food you are looking for.
@@ -157,7 +157,7 @@ responses:
     text: On a scale of 1-5, how would you rate your conversation today?
 
   utter_ask_survey_form_open_feedback:
-  - text: Is there any other feedback you can provide?
+  - text: Your opinion is very important to us. Do you want to leave some feedback?
 
   utter_survey_end:
   - text: Thank you for the feedback!
@@ -205,7 +205,6 @@ forms:
     required_slots:
       email:
       - entity: email
-        not_intent: product_updates
         type: from_entity
   survey_form:
     required_slots:

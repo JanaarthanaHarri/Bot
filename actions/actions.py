@@ -113,7 +113,7 @@ class ReturnOrder(Action):
             connection.close()
 
             # confirm return
-            dispatcher.utter_message(template="utter_returned")
+            dispatcher.utter_message(template="utter_order_returned")
             return []
         else:
             # db didn't have an entry with this email
