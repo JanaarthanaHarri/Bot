@@ -81,7 +81,7 @@ responses:
   - text: unfortunately, I'm still listening.
   
   utter_capabilities:
-  - text: I can help you check your order status, return order, cancel order and browse menu.
+  - text: I can help you check your order status, cancel order, browse menu and return order.
   
   utter_mood_great:
   - text: Superb!
@@ -106,8 +106,7 @@ responses:
   - text: um, what did you just say to me?
 
   utter_ask_order_status_form_email:
-  - text: I can help you find the status of your order. What's your email address
-      so I can find the order?
+  - text: What's your email address so I can find the order?
 
   utter_order_status:
   - text: Looks like the order from {email} is {status}
@@ -150,26 +149,22 @@ responses:
       title: '2'
     - payload: '3'
       title: '3'
-    - payload: '4'
-      title: '4'
-    - payload: '5'
-      title: '5'
-    text: On a scale of 1-5, how would you rate your conversation today?
+    text: On a scale of 1-3, how would you rate your conversation today?
 
   utter_ask_survey_form_open_feedback:
   - text: Your opinion is very important to us. Do you want to leave some feedback?
 
   utter_survey_end:
-  - text: Thank you for the feedback!
+  - text: Do you want to know anything else?
   
   utter_start_over:
   - text: Ok, let's start over.
   
   utter_open_feedback: 
-  - text: Here's your lovely feedback - {open_feedback}
+  - text: Thank you for you feedback. 
   
   utter_in_menu:
-  - text: You're in luck! We have {food} in today's menu.
+  - text: Hooray! We have {food} in today's menu.
   
   utter_no_menu:
   - text: Sorry, seems like we are out of those.

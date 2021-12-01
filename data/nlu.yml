@@ -175,6 +175,7 @@ nlu:
     - is [burger](food) available?
     - what about [biriyani](food)
     - what's in your menu
+    - what's in today's menu
     - check menu
     - browse mwnu
     - do you have any specials today
