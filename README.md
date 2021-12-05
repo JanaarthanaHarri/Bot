@@ -1,4 +1,5 @@
-# CMPE_252_AI_Bot
+# Chatbot
+## Chatbot to check status for food order takeaways
 
 ## To test the bot
 
